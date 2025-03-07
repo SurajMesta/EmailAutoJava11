@@ -19,14 +19,24 @@ public class BaseTest {
             WebDriverManager.chromedriver().setup();
             driver.set(new ChromeDriver());
             driver.get().get(url);
+            if(getValue("full_screen").equalsIgnoreCase("yes")){
+                driver.get().manage().window().maximize();
+            }
+
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver.set(new FirefoxDriver());
             driver.get().get(url);
+            if(getValue("full_screen").equalsIgnoreCase("yes")){
+                driver.get().manage().window().maximize();
+            }
         } else if (browser.equalsIgnoreCase("safari")) {
             WebDriverManager.safaridriver().setup();
             driver.set(new SafariDriver());
             driver.get().get(url);
+            if(getValue("full_screen").equalsIgnoreCase("yes")){
+                driver.get().manage().window().maximize();
+            }
         } else {
             System.out.println("Please choose between the following browsers.....");
             System.out.println("Available browsers are chrome,firefox & safari");
