@@ -4,12 +4,7 @@ import static com.tests.BaseTest.*;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
-import static TestUtils.WaitUtils.*;
 
 public final class ActionUtils {
 
@@ -27,8 +22,15 @@ public final class ActionUtils {
         return actions;
     }
 
-    public static void moveToElementAndClick(WebElement element){
+    public static void moveToElementAndClick(WebElement element) {
         getInstance().moveToElement(element).click().build().perform();
     }
 
+    public static void enterValueToTextBox(WebElement element, String value) {
+        element.sendKeys(value);
+    }
+
+    public static void clickElement(WebElement element) {
+        element.click();
+    }
 }
